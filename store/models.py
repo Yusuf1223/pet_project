@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
+from django.conf import settings
 
 
 # Create your models here.
@@ -86,6 +87,9 @@ class Watch(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    buyers = models.ManyToManyField(settings.AUTH_USER_MODEL,
+                                    through='Order', related_name='watch_buyers')
+
 
 # Image Model
 
@@ -97,3 +101,16 @@ class Image(models.Model):
 
 class WatchImage(Image):
     watch = models.ForeignKey('Watch', on_delete=models.CASCADE)
+
+
+# Cart and Status
+class Status(models.Model):
+    title = models.CharField(max_length=128)
+
+
+class Order(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    watch = models.ForeignKey(Watch, on_delete=models.CASCADE)
+    status = models.ForeignKey('Status', on_delete=models.SET_NULL, null=True,)
+    count = models.IntegerField()
+
