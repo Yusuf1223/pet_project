@@ -15,6 +15,9 @@ class Feedback(models.Model):
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Info(models.Model):
     title = models.CharField(max_length=128,
@@ -22,12 +25,18 @@ class Info(models.Model):
     text = models.TextField()
     key = models.CharField(max_length=128)  # it determines which of the pages we are in
 
+    def __str__(self):
+        return self.key
+
 
 class Contact(models.Model):
     title = models.CharField(max_length=128)
     address = models.CharField(max_length=256)
     number = models.CharField(max_length=16)
     email = models.EmailField()
+
+    def __str__(self):
+        return self.title
 
 
 class Right(models.Model):
@@ -39,27 +48,45 @@ class Right(models.Model):
     legal_address = models.CharField(max_length=128)
     email = models.EmailField()
 
+    def __str__(self):
+        return self.title
+
 
 # Watch Model and Models for Filtering
 
 class Color(models.Model):
     title = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.title
+
 
 class Material(models.Model):
     title = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.title
 
 
 class WatchStyle(models.Model):
     title = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.title
+
 
 class Coating(models.Model):
     title = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.title
+
 
 class GlassMaterial(models.Model):
     title = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.title
 
 
 class Watch(models.Model):
@@ -90,6 +117,9 @@ class Watch(models.Model):
     buyers = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                     through='Order', related_name='watch_buyers')
 
+    def __str__(self):
+        return self.title
+
 
 # Image Model
 
@@ -97,6 +127,9 @@ class Watch(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length=128)
     image = models.ImageField(upload_to='static/img')
+
+    def __str__(self):
+        return self.name
 
 
 class WatchImage(Image):
@@ -107,10 +140,16 @@ class WatchImage(Image):
 class Status(models.Model):
     title = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.title
+
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     watch = models.ForeignKey(Watch, on_delete=models.CASCADE)
     status = models.ForeignKey('Status', on_delete=models.SET_NULL, null=True,)
     count = models.IntegerField()
+
+    def __str__(self):
+        return self.user.name
 
