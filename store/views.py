@@ -28,7 +28,7 @@ def policy(request):
 def rights(request):
     right = Right.objects.get(pk=1)
     ctx = {'right': right}
-    render(request, 'store/rights.html', ctx)
+    return render(request, 'store/rights.html', ctx)
 
 
 class AboutView(View):
@@ -61,9 +61,16 @@ class CartListView(ListView, LoginRequiredMixin):
         return qs.filter(status='in_cart', user=self.request.user)
 
 
-# class WatchDetailView(DetailView):
-#     model = Watch
-#     template_name = 'store/product.html'
-#
-#     def post(self, request):
+class WatchDetailView(DetailView):
+    model = Watch
+    template_name = 'store/product.html'
+
+    # def post(self, request, pk):
+    #     watch = Watch.objects.get(pk=pk)
+    #     watch.count -= request.POST.
+
+
+class WatchListView(ListView):
+    model = Watch
+    template_name = 'store/catalog.html'
 

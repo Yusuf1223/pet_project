@@ -148,7 +148,7 @@ class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     watch = models.ForeignKey(Watch, on_delete=models.CASCADE)
     status = models.ForeignKey('Status', on_delete=models.SET_NULL, null=True,)
-    count = models.IntegerField()
+    count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.name
