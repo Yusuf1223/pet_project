@@ -10,7 +10,7 @@ class Feedback(models.Model):
     name = models.CharField(max_length=128,
                             validators=[MinLengthValidator(2, "Name must have more than 2 characters")])
 
-    number = models.CharField(max_length=16)
+    number = models.CharField(max_length=128)
     email = models.EmailField()
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

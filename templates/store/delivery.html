@@ -4,16 +4,18 @@
     <section class="section">
         <div class="container-my">
             <div class="little-container">
-                <!--                <div class="page-title-container">-->
-                <!--                    <h1 class="page-title"></h1>-->
-                <!--                </div>-->
-                <div class="section-name-container">
-                    <h2 class="section-name">{{ delivery.title }}</h2>
+                <div class="page-title-container">
+                <h1 class="page-title">{{ delivery.title }}</h1>
                 </div>
-                <div class="rights-block">
-                    <div class="rights-row">
-                        <p class="rights">
-                            {{ delivery.text }}
+                <div class="spoiler-section">
+                    <div class="section-name-container spoiler-heading">
+                        <svg class="item-arrow" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 13L7 7L0.999999 1" stroke="white" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="section-content">
+                        <p class="content-text">
+                            {{ delivery.text}}
                         </p>
                     </div>
                 </div>

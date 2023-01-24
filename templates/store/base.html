@@ -81,9 +81,9 @@
                 <a href="{% url 'store:about' %}" class="nav-item">About Us</a>
                 <div class="nav-item info-item">Information
                     <div class="dropdown">
-                        <a href="{% url 'store:delivery' %}" class="item">SHIPPING & DELIVERY</a>
-                        <a href="{% url 'store:guarantee' %}" class="item">RETURNS & EXCHANGES</a>
-                        <a href="{% url 'store:privacy' %}" class="item">PRIVACY POLICY</a>
+                        <a href="{% url 'store:delivery' %}" class="item">Shipping & Delivery</a>
+                        <a href="{% url 'store:guarantee' %}" class="item">Returns & Exchanges</a>
+                        <a href="{% url 'store:privacy' %}" class="item">Privacy Policy</a>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
             </div>
             <div class="block">
                 <a href="{% url 'store:rights' %}" class="link">Rights information</a>
-                <a href="about.html#contacts" class="link">Contacts</a>
+                <a href="{% url 'store:about' %}#contacts" class="link">Contacts</a>
             </div>
         </div>
     </div>

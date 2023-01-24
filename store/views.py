@@ -7,6 +7,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
+def index(request):
+    ctx = {'slide_list': ["img/slider/1.webp", "img/slider/2.webp", "img/slider/3.webp"]}
+    return render(request, 'store/index.html', ctx)
+
+
 def delivery(request):
     info = Info.objects.get(key='delivery')
     ctx = {'delivery': info}
@@ -32,23 +37,22 @@ def rights(request):
 
 
 class AboutView(View):
+    about = Info.objects.get(key='about')
+    contact = Contact.objects.get(pk=1)
+
     def get(self, request):
-        about = Info.objects.get(key='about')
         form = FeedbackForm()
-        contact = Contact.objects.get(pk=1)
-        ctx = {'about': about, 'form': form, 'contact': contact}
+        ctx = {'about': self.about, 'form': form, 'contact': self.contact}
         return render(request, 'store/about.html', ctx)
 
     def post(self, request):
         form = FeedbackForm(request.POST)
-        about = request.GET.get('about')
-        contact = request.GET.get('contact')
-        ctx = {'about': about, 'form': form, 'contact': contact}
+        ctx = {'about': self.about, 'form': form, 'contact': self.contact}
 
-        if not form.is_valid():
-            return render(request, 'store/about.html', ctx)
+        if form.is_valid():
+            feedback = form.save()
+            feedback.save()
 
-        form.save()
         return render(request, 'store/about.html', ctx)
 
 
@@ -73,4 +77,3 @@ class WatchDetailView(DetailView):
 class WatchListView(ListView):
     model = Watch
     template_name = 'store/catalog.html'
-
