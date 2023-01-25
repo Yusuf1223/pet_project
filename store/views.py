@@ -60,9 +60,9 @@ class CartListView(ListView, LoginRequiredMixin):
     model = Order
     template_name = 'store/cart.html'
 
-    def get_queryset(self):
-        qs = super(CartListView, self).get_queryset()
-        return qs.filter(status='in_cart', user=self.request.user)
+    # def get_queryset(self):
+    #     qs = super(CartListView, self).get_queryset()
+    #     return qs.filter(status=3, user=self.request.user)
 
 
 class WatchDetailView(DetailView):
@@ -77,3 +77,5 @@ class WatchDetailView(DetailView):
 class WatchListView(ListView):
     model = Watch
     template_name = 'store/catalog.html'
+
+

@@ -97,7 +97,7 @@
                     </form>
                     <img src="{% static "img/icons/search.svg"%}" alt="" class="icon absolute search-btn">
                 </a>
-                <a href="cart.html" class="icon-item cart">
+                <a href="{% url 'store:cart' %}" class="icon-item cart">
                     <img src="{% static "img/icons/cart.svg"%}" alt="" class="icon">
                     <div class="cart-items">
                         <p class="text">3</p>
