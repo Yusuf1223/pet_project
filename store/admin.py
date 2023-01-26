@@ -12,8 +12,18 @@ admin.site.register(Material)
 admin.site.register(WatchStyle)
 admin.site.register(Coating)
 admin.site.register(GlassMaterial)
-admin.site.register(Watch)
-admin.site.register(Image)
+
+
+class WatchImageInline(admin.TabularInline):
+    model = WatchImage
+    extra = 3
+
+
+class WatchAdmin(admin.ModelAdmin):
+    inlines = [WatchImageInline, ]
+
+
+admin.site.register(Watch, WatchAdmin)
 admin.site.register(WatchImage)
 
 admin.site.register(Order)

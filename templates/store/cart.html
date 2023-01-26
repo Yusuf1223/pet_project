@@ -9,6 +9,7 @@
                 <div class="cart">
                     <div class="section-name-container">
                         <h1 class="section-name">Cart</h1>
+
                     </div>
                     <div class="products-block">
                         <div class="names-row">
@@ -23,8 +24,10 @@
                             <div class="product-row">
                                 <div class="product-info">
                                     <div class="img-container">
-                                        <img src="{{ MEDIA_ROOT }}" alt="{{ order.watch.title }}" class="img">
+                                        <img src="{{ order.watch.images.all.0.image.url }}" alt="{{ order.watch.title }}" class="img">
                                     </div>
+                                   <p></p>
+
                                     <h2 class="name">{{ order.watch.title }}</h2>
                                 </div>
                                 <p class="price"><span class="value">{{ order.watch.price }}</span> Р</p>
@@ -91,4 +94,5 @@
             </div>
         </div>
     </section>
+
 {% endblock %}

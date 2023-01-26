@@ -122,18 +122,13 @@ class Watch(models.Model):
 
 
 # Image Model
-
-
-class Image(models.Model):
+class WatchImage(models.Model):
     name = models.CharField(max_length=128)
-    image = models.ImageField(upload_to='static/img')
+    image = models.ImageField(upload_to='img/')
+    watch = models.ForeignKey('Watch', on_delete=models.CASCADE, related_name='images')
 
     def __str__(self):
         return self.name
-
-
-class WatchImage(Image):
-    watch = models.ForeignKey('Watch', on_delete=models.CASCADE)
 
 
 # Cart and Status
@@ -145,9 +140,21 @@ class Status(models.Model):
 
 
 class Order(models.Model):
+
+    ORDERED = 'ordered'
+    IN_CART = 'in_cart'
+    CANCELED = 'canceled'
+    FINISHED = 'finished'
+
+    STATUS_CHOICES = [
+        (ORDERED, 'ordered'),
+        (IN_CART, 'in_cart'),
+        (CANCELED, 'canceled'),
+        (FINISHED, 'finished')
+    ]
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     watch = models.ForeignKey(Watch, on_delete=models.CASCADE)
-    status = models.ForeignKey('Status', on_delete=models.SET_NULL, null=True,)
+    status = models.CharField(max_length=128, choices=STATUS_CHOICES, default=IN_CART)
     count = models.IntegerField(default=0)
 
     def __str__(self):
