@@ -1,117 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends 'store/base.html' %}
+{% block title %}Watches{% endblock %}
+{% load static %}
 
-    <link rel="preload" href="nouislider/nouislider.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="fonts/raleway/raleway.css">
-
-    <link rel="stylesheet" href="owlcarousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/dist/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <title>Каталог</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/icons/favicon.png" />
-</head>
-
-<body class="scrollable">
-
-<header>
-    <!--        <div class="mobile-menu-container">-->
-    <!--        </div>-->
-    <div class="mobile-menu">
-        <div class="menu-container">
-            <div class="search-item menu-item">
-                <form action="" class="search">
-                    <input type="text" class="search-input" placeholder="Поиск">
-                </form>
-                <img src="img/icons/search.svg" alt="" class="icon">
-            </div>
-            <a href="catalog.html" class="menu-item">
-                <p class="item-text">Часы</p>
-            </a>
-            <a href="catalog.html" class="menu-item">
-                <p class="item-text">Украшения</p>
-            </a>
-            <a href="catalog.html" class="menu-item">
-                <p class="item-text">Подарочные наборы</p>
-            </a>
-            <a href="about.html" class="menu-item">
-                <p class="item-text">О нас</p>
-            </a>
-            <div class="menu-item-container">
-
-                <a class="menu-item info-btn">
-                    <p class="item-text">Информация</p>
-                    <svg class="item-arrow" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 13L7 7L0.999999 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <div class="dropdown">
-                    <a href="delivery.html" class="item">Доставка и оплата</a>
-                    <a href="guarantee.html" class="item">Гарантия и возврат</a>
-                    <a href="privacy.html" class="item">Политика конфиденциальности</a>
-                </div>
-            </div>
-            <div class="btn-block">
-                <a href="" class="btn register" data-toggle="modal" data-target="#registerModal">Регистрация</a>
-                <a href="" class="btn login" data-toggle="modal" data-target="#logInModal">Войти</a>
-            </div>
-        </div>
-    </div>
-    <div class="container-my">
-        <div class="navigation-bar ">
-            <div class="burger-btn-container">
-                <div class="burger-btn">
-                    <span></span>
-                </div>
-            </div>
-            <a href="index.html" class="logo-container" >
-                <img src="img/icons/logo.webp" alt="" class="logo">
-            </a>
-            <div class="nav-container">
-                <a href="catalog.html" class="nav-item">Часы</a>
-                <a href="catalog.html" class="nav-item">Украшения</a>
-                <a href="catalog.html" class="nav-item">Подарочные наборы</a>
-                <a href="about.html" class="nav-item">О нас</a>
-                <div class="nav-item info-item">Информация
-                    <div class="dropdown">
-                        <a href="delivery.html" class="item">Доставка и оплата</a>
-                        <a href="guarantee.html" class="item">Гарантия и возврат</a>
-                        <a href="privacy.html" class="item">Политика конфиденциальности</a>
-                    </div>
-                </div>
-            </div>
-            <div class="user-block">
-                <a href="" class="login-btn" data-toggle="modal" data-target="#logInModal">
-                    Войти
-                </a>
-                <a class="search-item icon-item">
-                    <form action="" class="search">
-                        <input type="text" class="search-input" placeholder="Поиск">
-                    </form>
-                    <img src="img/icons/search.svg" alt="" class="icon absolute search-btn">
-                </a>
-                <a href="cart.html" class="icon-item cart">
-                    <img src="img/icons/cart.svg" alt="" class="icon">
-                    <div class="cart-items">
-                        <p class="text">3</p>
-                    </div>
-                </a>
-                <a href="" class="icon-item">
-                    <img src="img/icons/instagram.svg" alt="" class="icon">
-                </a>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-<main class="main">
+{% block content %}
     <section class="section">
         <div class="container-my">
             <div class="filters-row">
@@ -127,27 +18,27 @@
                         <path d="M9 6H15" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M17 14H23" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    Фильтровать по
+                    Filter by
                 </a>
                 <div class="custom-select" >
                     <select>
-                        <option value="0">Сортировать по:</option>
-                        <option value="1">Популярности</option>
-                        <option value="2">Средний рейтинг</option>
-                        <option value="3">Цена</option>
+                        <option value="0">Sorting by:</option>
+                        <option value="1">Newest</option>
+                        <option value="2">Price</option>
                     </select>
                 </div>
             </div>
             <div class="products">
-                <a href="product.html" class="product-card">
+                {% for watch in watch_list %}
+                <a href="{% url 'store:watch' watch.id %}" class="product-card">
                     <div class="img-container">
-                        <img src="img/products/1.png" alt="" class="img">
+                        <img src="{{ watch.images.first.image.url }}" alt="" class="img">
                     </div>
                     <div class="info">
-                        <h3 class="name">Часы Amelia Parker</h3>
-                        <p class="price">1 111 Р</p>
+                        <h3 class="name">{{ watch.title }}</h3>
+                        <p class="price">{{ watch.price }} Р</p>
                         <div class="btn-container">
-                            <button class="btn">В корзину
+                            <button class="btn">To Cart
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.5017 17H5.82609C5.43915 17 5.08694 16.7768 4.92177 16.4269L0.673519 7.42686C0.360404 6.76352 0.844309 6 1.57784 6H16.4667C17.189 6 17.673 6.74221 17.3818 7.40317L13.4168 16.4032C13.257 16.7659 12.898 17 12.5017 17Z" stroke="white"/>
                                     <path d="M12 6V3C12 1.89543 11.1046 1 10 1H8C6.89543 1 6 1.89543 6 3V6" stroke="white"/>
@@ -156,6 +47,7 @@
                         </div>
                     </div>
                 </a>
+                {% endfor %}
                 <a href="product.html" class="product-card">
                     <div class="img-container">
                         <img src="img/products/2.png" alt="" class="img">
@@ -309,168 +201,14 @@
 <!--            конец блока для тестирования-->
         </div>
     </section>
-</main>
-
-
-<footer>
-    <div class="container-my">
-        <div class="footer ">
-            <div class="block">
-                <svg class="icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.5 16C3.81318 16 0 12.4111 0 8C0 3.58888 3.81318 0 8.5 0C13.1868 0 17 3.58888 17 8C17 12.4111 13.1868 16 8.5 16ZM8.5 1C4.39889 1 1.0625 4.14013 1.0625 8C1.0625 11.8599 4.39889 15 8.5 15C12.6011 15 15.9375 11.8599 15.9375 8C15.9375 4.14013 12.6011 1 8.5 1Z" fill="white"/>
-                    <path d="M8.50002 12C6.15661 12 4.25 10.2055 4.25 7.99988C4.25 5.79422 6.15657 3.99976 8.50002 3.99976C9.65227 3.99976 10.7303 4.42654 11.5366 5.20145L10.7771 5.90067C10.1727 5.31958 9.36438 4.99975 8.50002 4.99975C6.74232 4.99975 5.31251 6.34549 5.31251 7.99984C5.31251 9.65419 6.74232 10.9999 8.50002 10.9999C9.36384 10.9999 10.1721 10.6801 10.7771 10.099L11.5355 10.7992C10.7298 11.5737 9.65177 12 8.50002 12Z" fill="white"/>
-                </svg>
-                <p class="text">2021 Amelia Parker. Все права защищены.</p>
-            </div>
-            <div class="block">
-                <a href="rights.html" class="link">Правовая информация</a>
-                <a href="about.html#contacts" class="link">Контакты</a>
-            </div>
-        </div>
-    </div>
-
-</footer>
-
-
-<!--    MODALS-->
-
-<div class="modal fade form-modal" id="logInModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-name-container">
-                    <h5 class="modal-name">Войти</h5>
-                </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="error">
-                    <p class="text">Неизвестное имя пользователя. Попробуйте снова или попробуйте ввести ваш E-mail </p>
-                    <div class="close"></div>
-                </div>
-                <form action="" class="form">
-                    <div class="input-container">
-                        <div class="placeholder">
-                            <p class="text">Ваше имя</p>
-                            <span class="star">*</span>
-                        </div>
-                        <input type="text" class="input" name="name" required>
-                    </div>
-                    <div class="input-container">
-                        <div class="placeholder">
-                            <p class="text">Ваш пароль</p>
-                            <span class="star">*</span>
-                        </div>
-                        <input type="password" class="input" name="password" required>
-                    </div>
-
-                    <label class="input-container checkbox-container">Запомнить меня
-                        <input type="checkbox" required>
-                        <span class="checkmark"></span>
-                    </label>
-                    <div class="input-container">
-                        <button class="submit">Войти</button>
-                    </div>
-
-                </form>
-                <div class="notes">
-                    <a class="link" data-dismiss="modal" data-toggle="modal" data-target="#forgotPasswordModal">Забыли пароль?</a>
-                    <a class="link" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Регистрация</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade form-modal" id="registerModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog " role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-name-container">
-                    <h5 class="modal-name">Регистрация</h5>
-                </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="" class="form">
-                    <div class="input-container">
-                        <div class="placeholder">
-                            <p class="text">Ваше имя</p>
-                            <span class="star">*</span>
-                        </div>
-                        <input type="text" class="input" name="name" required>
-                    </div>
-                    <div class="input-container">
-                        <div class="placeholder">
-                            <p class="text">Ваша почта</p>
-                            <span class="star">*</span>
-                        </div>
-                        <input type="email" class="input" name="email" required>
-                    </div>
-                    <div class="input-container">
-                        <div class="placeholder">
-                            <p class="text">Введите пароль</p>
-                            <span class="star">*</span>
-                        </div>
-                        <input type="password" class="input" name="password" required>
-                    </div>
-                    <div class="input-container">
-                        <div class="placeholder">
-                            <p class="text">Повторите пароль</p>
-                            <span class="star">*</span>
-                        </div>
-                        <input type="password" class="input" name="password_repeat" required>
-                    </div>
-
-                    <label class="input-container checkbox-container">Даю согласие на обработку моих данных, с <a
-                            href="" class="bold">политикой конфиденциальности</a> ознакомлен
-                        <input type="checkbox" required>
-                        <span class="checkmark"></span>
-                    </label>
-                    <div class="input-container">
-                        <button class="submit">Зарегистрироваться</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade form-modal" id="forgotPasswordModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-name-container">
-                    <h5 class="modal-name">Восстановление пароля</h5>
-                </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <form action="" class="form">
-                    <h2 class="header">Чтобы восстановить пароль, введите имя которое было использовано при регистрации
-                        или введите ваш E-mail</h2>
-                    <div class="input-container">
-                        <div class="placeholder">
-                            <p class="text">Введите имя или e-mail</p>
-                            <span class="star">*</span>
-                        </div>
-                        <input type="text" class="input" name="name" required>
-                    </div>
-                    <div class="input-container">
-                        <button class="submit">Восстановить пароль</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+{% endblock %}
+{% block modal %}
 <div class="modal fade form-modal filter" id="filterModal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-name-container">
-                    <h5 class="modal-name">Фильтр</h5>
+                    <h5 class="modal-name">Filter</h5>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -504,7 +242,7 @@
                     <div class="select-inputs">
                         <div class="custom-select" >
                             <select>
-                                <option value="0">Цвет браслета</option>
+                                <option value="0">Braslet Color</option>
                                 <option value="1">Красный</option>
                                 <option value="2">Синий</option>
                                 <option value="3">Белый</option>
@@ -579,60 +317,10 @@
         </div>
     </div>
 </div>
-<div class="modal fade message" id="addedModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="body-container">
-                    <img src="img/icons/tick.svg" alt="" class="icon">
-                    <p class="text">Товар добавлен в корзину</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade message" id="deletedModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="body-container">
-                    <img src="img/icons/cross.svg" alt="" class="icon">
-                    <p class="text">Товар удален из корзины</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade message" id="thankYouModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="body-container">
-                    <img src="img/icons/tick.svg" alt="" class="icon">
-                    <p class="text">Спасибо за покупку!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--END OF MODALS-->
-
-
-</body>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-<script src="owlcarousel/dist/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/carousels.js"></script>
-<script src="nouislider/nouislider.js"></script>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static "nouislider/nouislider.js" %}"></script>
 <script>
     initializeRangeSlider(0, 5000);
 </script>
-</body>
-</html>
+{% endblock %}

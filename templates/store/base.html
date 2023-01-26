@@ -75,7 +75,7 @@
                 <img src="{% static "img/icons/logo.webp"%}" alt="" class="logo">
             </a>
             <div class="nav-container">
-                <a href="catalog.html" class="nav-item">Watches</a>
+                <a href="{% url 'store:catalog' %}" class="nav-item">Watches</a>
              <!--   <a href="catalog.html" class="nav-item">Украшения</a>
                 <a href="catalog.html" class="nav-item">Подарочные наборы</a>-->
                 <a href="{% url 'store:about' %}" class="nav-item">About Us</a>
@@ -271,120 +271,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade form-modal filter" id="filterModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-name-container">
-                    <h5 class="modal-name">Фильтр</h5>
-                </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="" class="form">
-                    <div class="price-range">
-                        <div class="inputs">
-                            <div class="input-container">
-                                <div class="placeholder-static">
-                                    <p class="text">Р</p>
-                                </div>
-                                <input type="text" class="input" name="min" id="min">
-                            </div>
-                            <div class="input-container">
-                                <div class="placeholder-static">
-                                    <p class="text">Р</p>
-                                </div>
-                                <input type="text" class="input" name="max" id="max">
-                            </div>
-                        </div>
-                        <div class="range-slider" id="range-slider"></div>
-                        <!--                        в конце этого файла есть вызов функции initializeRangeSlider(0, 5000). минимальные и-->
-                        <!--                        максимальные значения стоит вписывать туда. в файле script.js прописана эта функция, там-->
-                        <!--                        инициализируется ползунок. если потребуется изменить настройки, вот документация:-->
-                        <!--                        https://refreshless.com/nouislider/slider-options/-->
-                        <div class="minmax">
-                            <p class="text">Min</p>
-                            <p class="text">Max</p>
-                        </div>
-                    </div>
-                    <div class="select-inputs">
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Цвет браслета</option>
-                                <option value="1">Красный</option>
-                                <option value="2">Синий</option>
-                                <option value="3">Белый</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Материал браслета</option>
-                                <option value="1">Железо</option>
-                                <option value="2">Резина</option>
-                                <option value="3">Не придумал</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Размер браслета</option>
-                                <option value="1">Очень большой</option>
-                                <option value="2">Большой</option>
-                                <option value="3">Средний</option>
-                                <option value="4">Маленький</option>
-                                <option value="5">Очень маленький</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Цвет корпуса</option>
-                                <option value="1">Красный</option>
-                                <option value="2">Синий</option>
-                                <option value="3">Белый</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Материал корпуса</option>
-                                <option value="1">Железо</option>
-                                <option value="2">Резина</option>
-                                <option value="3">Не придумал</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Размер корпуса</option>
-                                <option value="1">Очень большой</option>
-                                <option value="2">Большой</option>
-                                <option value="3">Средний</option>
-                                <option value="4">Маленький</option>
-                                <option value="5">Очень маленький</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Цвет циферблата</option>
-                                <option value="1">Красный</option>
-                                <option value="2">Синий</option>
-                                <option value="3">Белый</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">Стекло</option>
-                                <option value="1">Стекло</option>
-                                <option value="2">Пластик</option>
-                                <option value="3">Не придумал</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="input-container">
-                        <button class="submit">Фильтровать</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+{% block modal %}
+{% endblock %}
 <div class="modal fade message" id="addedModal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -436,5 +324,7 @@
 <script src="{% static "owlcarousel/dist/owl.carousel.min.js"%}"></script>
 <script type="text/javascript" src="{% static "js/script.js" %}"></script>
 <script type="text/javascript" src="{% static "js/carousels.js"%}"></script>
+{% block scripts %}
+{% endblock %}
 </body>
 </html>

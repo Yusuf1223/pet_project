@@ -24,7 +24,7 @@
                             <div class="product-row">
                                 <div class="product-info">
                                     <div class="img-container">
-                                        <img src="{{ order.watch.images.all.0.image.url }}" alt="{{ order.watch.title }}" class="img">
+                                        <img src="{{ order.watch.images.first.image.url }}" alt="{{ order.watch.title }}" class="img">
                                     </div>
                                    <p></p>
 
@@ -38,7 +38,7 @@
                                         <div class="plus"> </div>
                                     </div>
                                 </form>
-                                <p class="overall-price"><span class="value">{{ order.watch.price }}</span> Р</p>
+                                <p class="overall-price"><span class="value">{% widthratio order.watch.price 1 order.count %}</span> Р</p>
                                 <div class="close"></div>
 
                             </div>

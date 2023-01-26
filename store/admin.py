@@ -27,4 +27,3 @@ admin.site.register(Watch, WatchAdmin)
 admin.site.register(WatchImage)
 
 admin.site.register(Order)
-admin.site.register(Status)

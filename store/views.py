@@ -78,4 +78,8 @@ class WatchListView(ListView):
     model = Watch
     template_name = 'store/catalog.html'
 
+    # def get(self, request):
+    #     qs = super(WatchListView, self).get(request)
+    #     return qs.filter()
+
 
