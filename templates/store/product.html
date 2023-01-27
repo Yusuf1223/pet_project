@@ -17,121 +17,87 @@
                             </svg>
                         </span>
                         <div class="carousel owl-carousel" id="product-slider">
+                            {% for image in watch.images.all %}
                             <div class="item">
-                                <img src="img/products/product/1.webp" alt="" class="img">
+                                <img src="{{ image.image.url }}" alt="" class="img">
                             </div>
-                            <div class="item">
-                                <img src="img/products/product/2.webp" alt="" class="img">
-                            </div>
-                            <div class="item">
-                                <img src="img/products/product/3.webp" alt="" class="img">
-                            </div>
-                            <div class="item">
-                                <img src="img/products/product/4.webp" alt="" class="img">
-                            </div>
-                            <div class="item">
-                                <img src="img/products/product/1.webp" alt="" class="img">
-                            </div>
-                            <div class="item">
-                                <img src="img/products/product/2.webp" alt="" class="img">
-                            </div>
-                            <div class="item">
-                                <img src="img/products/product/3.webp" alt="" class="img">
-                            </div>
-                            <div class="item">
-                                <img src="img/products/product/4.webp" alt="" class="img">
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
                 <div class="info-block">
                     <div class="breadcrumps">
-                        <a href="index.html" class="breadcrump">Главная</a>
-                        <a href="catalog.html" class="breadcrump">Часы</a>
-                        <p class="breadcrump">Часы Ameila Parker</p>
+                        <a href="{% url 'store:index' %}" class="breadcrump">Main</a>
+                        <a href="{% url 'store:catalog' %}" class="breadcrump">Watches</a>
+                        <p class="breadcrump">{{ watch.title }}</p>
 
                     </div>
                     <div class="product-info">
-                        <h1 class="product-name">Часы Amelia Parker</h1>
+                        <h1 class="product-name">{{ watch.title }}</h1>
                         <div class="characteristics">
                             <div class="item">
-                                <p class="name">Артикул:</p>
-                                <p class="value">AA9-B018S</p>
+                                <p class="name">Article:</p>
+                                <p class="value">{{ watch.article }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Стиль:</p>
-                                <p class="value">Charm Silver Link</p>
+                                <p class="name">Style:</p>
+                                <p class="value">{{ watch.style }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Размер в мм:</p>
-                                <p class="value">36</p>
+                                <p class="name">Size in mm:</p>
+                                <p class="value">{{ watch.watch_size }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Материал:</p>
-                                <p class="value">Металл</p>
+                                <p class="name">Material:</p>
+                                <p class="value">{{ watch.watch_material }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Цвет:</p>
-                                <p class="value">Серебрянный</p>
+                                <p class="name">Color:</p>
+                                <p class="value">{{ watch.watch_color }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Покрытие корпуса:</p>
-                                <p class="value">Ионное покрытие (IP)</p>
+                                <p class="name">Coating:</p>
+                                <p class="value">{{ watch.coating }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Размер браслета в мм:</p>
-                                <p class="value">18х18</p>
+                                <p class="name">Bracelet size in mm:</p>
+                                <p class="value">{{ watch.bracelet_size }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Материал браслета:</p>
-                                <p class="value">Нержавеющая сталь</p>
+                                <p class="name">Bracelet material:</p>
+                                <p class="value">{{ watch.bracelet_material }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Цвет браслета:</p>
-                                <p class="value">Серебрянный</p>
+                                <p class="name">Bracelet color:</p>
+                                <p class="value">{{ watch.bracelet_color }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Стекло:</p>
-                                <p class="value">Закаленное минеральное стекло</p>
+                                <p class="name">Glass:</p>
+                                <p class="value">{{ watch.glass_material }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Водостойкость:</p>
-                                <p class="value">3 АТМ</p>
+                                <p class="name">Water resistance:</p>
+                                <p class="value">{{ watch.water_resistance }} АТМ</p>
                             </div>
                         </div>
                         <div class="price-container">
-                            <p class="price">1 111 <span class="currency">Р</span></p>
+                            <p class="price">{{ watch.price }} <span class="currency">Р</span></p>
                         </div>
-                        <form action="" class="form">
-                            <div class="input-container">Количество
+                        <form method="post" action="" class="form">
+                        {% csrf_token %}
+                            <div class="input-container">Amount
                                 <div class="custom-select" >
-                                    <select>
-                                        <option value="0">Количество</option>
+                                    <select name="amount">
+                                        <option value="0">Amount</option>
                                         <option value="1" selected>1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
+                                        {% for i in loop_times %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                             </div>
                             <div class="btn-container">
-                                <button class="btn" data-toggle="modal" data-target="#addedModal">В корзину
+                                <button class="btn" data-toggle="modal" data-target="#addedModal">To Cart
                                     <svg width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M20.0786 25H9.42224C9.03531 25 8.68309 24.7768 8.51793 24.4269L1.67352 9.92686C1.3604 9.26352 1.84431 8.5 2.57784 8.5H26.4667C27.189 8.5 27.673 9.24221 27.3818 9.90317L20.9937 24.4032C20.8339 24.7659 20.475 25 20.0786 25Z" stroke="white" stroke-width="2"/>
                                         <path d="M19 8.5V3C19 1.89543 18.1046 1 17 1H12C10.8954 1 10 1.89543 10 3V8.5" stroke="white" stroke-width="2"/>
@@ -142,12 +108,12 @@
                         <div class="bottom">
 
                             <div class="item">
-                                <p class="name">Артикул:</p>
-                                <p class="value">AA9-B018S</p>
+                                <p class="name">Article:</p>
+                                <p class="value">{{ watch.article }}</p>
                             </div>
                             <div class="item">
-                                <p class="name">Категория:</p>
-                                <p class="value">Часы</p>
+                                <p class="name">Category:</p>
+                                <p class="value">Watches</p>
                             </div>
                         </div>
                     </div>

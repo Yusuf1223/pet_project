@@ -93,7 +93,8 @@
                 </a>
                 <a class="search-item icon-item">
                     <form action="" class="search">
-                        <input type="text" class="search-input" placeholder="Search">
+                        <input name ="search" type="text" class="search-input" placeholder="Search"
+                                {% if search %} value="{{ search }}" {% endif %}>
                     </form>
                     <img src="{% static "img/icons/search.svg"%}" alt="" class="icon absolute search-btn">
                 </a>

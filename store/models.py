@@ -108,7 +108,7 @@ class Watch(models.Model):
     coating = models.ForeignKey('Coating', on_delete=models.SET_NULL, null=True)
 
     water_resistance = models.IntegerField()
-    price = models.FloatField()
+    price = models.IntegerField()
     count = models.IntegerField()
 
     created_at = models.DateTimeField(auto_now_add=True)
