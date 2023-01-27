@@ -101,10 +101,10 @@
                 <a href="{% url 'store:cart' %}" class="icon-item cart">
                     <img src="{% static "img/icons/cart.svg"%}" alt="" class="icon">
                     <div class="cart-items">
-                        <p class="text">3</p>
+                        <p class="text">{{ order_list.count }}</p>
                     </div>
                 </a>
-                <a href="" class="icon-item">
+                <a href="https://www.instagram.com/b_joseph_r/" class="icon-item">
                     <img src="{% static "img/icons/instagram.svg" %}" alt="" class="icon">
                 </a>
             </div>
