@@ -66,6 +66,11 @@ class CartListView(ListView, LoginRequiredMixin):
         qs = super(CartListView, self).get_queryset()
         return qs.filter(status='in_cart', user=self.request.user)
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CartListView, self).get_context_data()
+        context['total'] = 0
+        return context
+
 
 class WatchDetailView(DetailView):
     model = Watch
@@ -141,3 +146,49 @@ class WatchListView(ListView):
 
         ctx = {'watch_list': watch_list, 'filter_list': filter_list, 'search': strval}
         return render(request, 'store/catalog.html', ctx)
+
+
+"""View for links into cart template"""
+
+
+def plus(request, pk):
+    order = Order.objects.get(pk=pk)
+    watch = order.watch
+
+    if watch.count:
+        watch.count -= 1
+        order.count += 1
+        watch.save()
+        order.save()
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def minus(request, pk):
+    order = Order.objects.get(pk=pk)
+    watch = order.watch
+
+    if order.count:
+        order.count -= 1
+        watch.count += 1
+        watch.save()
+        order.save()
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def order(request):
+    orders = Order.objects.filter(user=request.user, status=Order.IN_CART)
+    orders.status = Order.ORDERED
+    orders.update(status=Order.ORDERED)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def cancel(request, pk):
+    order = Order.objects.get(pk=pk)
+    watch = order.watch
+    watch.count += order.count
+    order.status = Order.CANCELED
+    order.save()
+    watch.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

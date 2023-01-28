@@ -12,5 +12,10 @@ urlpatterns = [
     path('about/', views.AboutView.as_view(), name='about'),
     path('cart/', views.CartListView.as_view(), name='cart'),
     path('product/<int:pk>', views.WatchDetailView.as_view(), name='watch'),
-    path('catalog/', views.WatchListView.as_view(), name='catalog')
+    path('catalog/', views.WatchListView.as_view(), name='catalog'),
+    path('plus/<int:pk>', views.plus, name='plus'),
+    path('minus/<int:pk>', views.minus, name='minus'),
+    path('order/', views.order, name='order'),
+    path('cancel/<int:pk>', views.cancel, name='cancel'),
+
 ]

@@ -147,7 +147,7 @@ class Order(models.Model):
         (CANCELED, 'canceled'),
         (FINISHED, 'finished')
     ]
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='order')
     watch = models.ForeignKey(Watch, on_delete=models.CASCADE)
     status = models.CharField(max_length=128, choices=STATUS_CHOICES, default=IN_CART)
     count = models.IntegerField(default=0)

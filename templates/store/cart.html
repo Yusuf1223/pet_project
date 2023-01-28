@@ -1,8 +1,8 @@
 {% extends 'store/base.html' %}
 {% block title %}Cart{% endblock %}
 {% load static %}
+{% load tags %}
 {% block content %}
-<main class="main">
     <section class="section">
         <div class="container-my">
             <div class="little-container">
@@ -33,14 +33,13 @@
                                 <p class="price"><span class="value">{{ order.watch.price }}</span> Р</p>
                                 <form action="" class="form">
                                     <div class="quantity-block">
-                                        <div class="minus"></div>
+                                        <div onclick="window.location='{% url 'store:minus' order.id %}'" class="minus"> </div>
                                         <input name="quantity" type="text" class="quantity" value="{{ order.count }}" >
-                                        <div class="plus"> </div>
+                                        <div onclick="window.location='{% url 'store:plus' order.id %}'" class="plus">  </div>
                                     </div>
                                 </form>
-                                <p class="overall-price"><span class="value">{% widthratio order.watch.price 1 order.count %}</span> Р</p>
-                                <div class="close"></div>
-
+                                <p class="overall-price"><span class="value" id="total">{% widthratio order.watch.price 1 order.count as num %}{{ num }}</span> Р</p>
+                                <div onclick="window.location='{% url 'store:cancel' order.id %}'" class="close"></div>
                             </div>
                             {% endfor %}
                             <!--<div class="product-row">
@@ -83,11 +82,11 @@
                             </div>-->
                         </div>
                         <div class="overall">
-                            <p class="name">ИТОГО:</p>
+                            <p class="name">Total:</p>
                             <p class="value">3 333 Р</p>
                         </div>
                         <div class="btn-container">
-                            <button class="btn">Purchase</button>
+                            <a href="{% url 'store:order' %}"><button class="btn">Purchase</button></a>
                         </div>
                     </div>
                 </div>
