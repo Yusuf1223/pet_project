@@ -21,9 +21,9 @@
                     </svg>
                     Filter by
                 </a>
-                <form onchange="this.form.submit();" action="" class="form">
+                <form onclick="this.form.submit();" class="form" name="myForm" id="myForm">
                     <div class="custom-select" >
-                    <select name="sort" id="sort">
+                    <select onclick="this.form.submit();" name="sort" id="sort">
                         <option value="0">Sorting by:</option>
                         <option value="1">Newest</option>
                         <option value="2">Price</option>
@@ -282,10 +282,10 @@
     <script>
         initializeRangeSlider(0, 5000);
     </script>
-{#    <script type='text/javascript'>#}
-{#    function submitForm(){#}
-{#      // Call submit() method on <form id='myform'>#}
-{#      document.getElementById('myform').submit();#}
-{#    }#}
-{#    </script>#}
+    <script type='text/javascript'>
+    function submitForm(){
+      // Call submit() method on <form id='myform'>
+      document.getElementById('myForm').submit();
+    }
+    </script>
 {% endblock %}

@@ -7,3 +7,5 @@ register = template.Library()
 def cart(things, status):
     return len(things.filter(status=status))
 
+
+

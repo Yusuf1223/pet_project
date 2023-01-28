@@ -23,48 +23,6 @@
 <body class="scrollable">
 
 <header>
-    <!--        <div class="mobile-menu-container">-->
-    <!--        </div>-->
-    <!--<div class="mobile-menu">
-        <div class="menu-container">
-            <div class="search-item menu-item">
-                <form action="" class="search">
-                    <input type="text" class="search-input" placeholder="Поиск">
-                </form>
-                <img src="{% static "img/icons/search.svg" %}" alt="" class="icon">
-            </div>
-            <a href="catalog.html" class="menu-item">
-                <p class="item-text">Часы</p>
-            </a>
-            <a href="catalog.html" class="menu-item">
-                <p class="item-text">Украшения</p>
-            </a>
-            <a href="catalog.html" class="menu-item">
-                <p class="item-text">Подарочные наборы</p>
-            </a>
-            <a href="{% url 'store:about' %}" class="menu-item">
-                <p class="item-text">О нас</p>
-            </a>
-            <div class="menu-item-container">
-
-                <a class="menu-item info-btn">
-                    <p class="item-text">Информация</p>
-                    <svg class="item-arrow" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 13L7 7L0.999999 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <div class="dropdown">
-                    <a href="{% url 'store:delivery' %}" class="item">SHIPPING & DELIVERY</a>
-                    <a href="{% url 'store:guarantee' %}" class="item">Гарантия и возврат</a>
-                    <a href="{% url 'store:privacy' %}" class="item">Политика конфиденциальности</a>
-                </div>
-            </div>
-            <div class="btn-block">
-                <a href="" class="btn register" data-toggle="modal" data-target="#registerModal">Регистрация</a>
-                <a href="" class="btn login" data-toggle="modal" data-target="#logInModal">Войти</a>
-            </div>
-        </div>
-    </div>-->
     <div class="container-my">
         <div class="navigation-bar ">
             <div class="burger-btn-container">
@@ -90,7 +48,7 @@
             </div>
             <div class="user-block">
                 <a href="" class="login-btn" data-toggle="modal" data-target="#logInModal">
-                    Sign In
+                    Log In
                 </a>
                 <a class="search-item icon-item">
                     <form action="" class="search">
@@ -281,7 +239,7 @@
             <div class="modal-body">
                 <div class="body-container">
                     <img src="{% static "img/icons/tick.svg" %}" alt="" class="icon">
-                    <p class="text">Товар добавлен в корзину</p>
+                    <p class="text">The product has been added to the cart</p>
                 </div>
             </div>
         </div>
@@ -293,7 +251,7 @@
             <div class="modal-body">
                 <div class="body-container">
                     <img src="{% static "img/icons/cross.svg"%}" alt="" class="icon">
-                    <p class="text">Товар удален из корзины</p>
+                    <p class="text">The product has been removed from the cart</p>
                 </div>
             </div>
         </div>
@@ -305,7 +263,7 @@
             <div class="modal-body">
                 <div class="body-container">
                     <img src="{% static "img/icons/tick.svg"%}" alt="" class="icon">
-                    <p class="text">Спасибо за покупку!</p>
+                    <p class="text">Thank you for your purchase!</p>
                 </div>
             </div>
         </div>
